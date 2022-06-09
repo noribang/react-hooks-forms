@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Form from "./Form";
+import DisplayData from "./DisplayData";
 
 function ParentComponent() {
     /* State. Form values.*/
@@ -14,19 +15,22 @@ function ParentComponent() {
 
     function handleLastNameChange(event) {
         /* Call setState. Setter function. */
-        setLastName(event.target.value);
+        setLastName(event.target.value);    
     }
 
     return (
-        <Form
+        <div>
+            <Form
              /* Passing state and event handlers as a prop. */
             firstName={firstName}
             lastName={lastName}
             handleFirstNameChange={handleFirstNameChange}
             handleLastNameChange={handleLastNameChange}
-        />
+            />
+            <DisplayData firstName={firstName} lastName={lastName} />
+        </div>
+        
     )
-
 }
 
 export default ParentComponent;
